@@ -3,7 +3,7 @@
 A full-stack web application to **add and display schools** using **Next.js (React)** and **MySQL**, built as part of a recruitment assignment.
 
 🔗 **Live Demo:** [https://school-registry.vercel.app](https://school-registry.vercel.app)  
-📂 **GitHub Repo:** [https://github.com/YOUR_USERNAME/schools-registry-next](https://github.com/YOUR_USERNAME/schools-registry-next)
+📂 **GitHub Repo:** [https://github.com/215N1F00A1/schools-registry-next](https://github.com/215N1F00A1/schools-registry-next)
 
 ---
 
