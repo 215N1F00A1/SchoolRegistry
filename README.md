@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+# 🏫 Schools Registry — Next.js + MySQL
 
-## Project info
+A full-stack web application to **add and display schools** using **Next.js (React)** and **MySQL**, built as part of a recruitment assignment.
 
-**URL**: https://lovable.dev/projects/4e5e11a5-e361-4d0f-8d60-3c0037f51e0f
+🔗 **Live Demo:** [https://school-registry.vercel.app](https://school-registry.vercel.app)  
+📂 **GitHub Repo:** [https://github.com/YOUR_USERNAME/schools-registry-next](https://github.com/YOUR_USERNAME/schools-registry-next)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Features
+- Add new schools with details:
+  - Name, Address, City, State, Contact, Email, Image
+- Validation with **react-hook-form + Zod**
+- Stores uploaded images in `/public/schoolImages/` (or Cloudinary for production)
+- Display schools in a **responsive grid** (like ecommerce sites)
+- Mobile and Desktop friendly (TailwindCSS responsive design)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4e5e11a5-e361-4d0f-8d60-3c0037f51e0f) and start prompting.
+## 🛠️ Tech Stack
+- **Frontend:** Next.js 14, React, TailwindCSS
+- **Backend:** Next.js API routes
+- **Database:** MySQL (`mysql2/promise`)
+- **Forms:** react-hook-form + Zod
+- **Hosting:** Vercel
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 📸 Screenshots
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Add School Page
+_Form with validations and image upload_
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+![Add School Screenshot](public/demo/addSchool.png)
 
-Follow these steps:
+### Show Schools Page
+_Ecommerce-style grid with school info_
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+![Show Schools Screenshot](public/demo/showSchools.png)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## ⚙️ Setup Instructions
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+1. **Clone the Repo**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/schools-registry-next.git
+   cd schools-registry-next
+Install Dependencies
+
+npm install
+Configure Environment
+Create a .env.local file:
+env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_NAME=schoolsdb
+Create Database
+
+sql
+CREATE DATABASE schoolsdb;
+USE schoolsdb;
+CREATE TABLE schools (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name TEXT,
+  address TEXT,
+  city TEXT,
+  state TEXT,
+  contact VARCHAR(15),
+  image TEXT,
+  email_id TEXT
+);
+Run Locally
+
 npm run dev
-```
+Visit → http://localhost:3000/addSchool
 
-**Edit a file directly in GitHub**
+Deploy to Vercel
+Push project to GitHub
+Import into Vercel
+Add .env.local values in project settings
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🎯 Future Improvements
+Search and filter schools by city/state
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/4e5e11a5-e361-4d0f-8d60-3c0037f51e0f) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Pagination and sorting
+Cloud image storage (Cloudinary/AWS S3)
