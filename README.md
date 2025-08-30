@@ -1,88 +1,95 @@
 # 🏫 Schools Registry — Next.js + MySQL
 
-A full-stack web application to **add and display schools** using **Next.js (React)** and **MySQL**, built as part of a recruitment assignment.
+A full-stack web application to **add and display schools** using **Next.js (React, App Router)** and **MySQL**, built as part of a job assignment.
 
-🔗 **Live Demo:** [https://school-registry.vercel.app](https://school-registry.vercel.app)  
-📂 **GitHub Repo:** [https://github.com/215N1F00A1/schools-registry-next](https://github.com/215N1F00A1/schools-registry-next)
+🔗 **Live Demo:** [school-registry.vercel.app](https://school-registry.vercel.app)  
+📂 **GitHub Repo:** [215N1F00A1/SchoolRegistry](https://github.com/215N1F00A1/SchoolRegistry)
 
 ---
 
 ## 🚀 Features
-- Add new schools with details:
-  - Name, Address, City, State, Contact, Email, Image
-- Validation with **react-hook-form + Zod**
-- Stores uploaded images in `/public/schoolImages/` (or Cloudinary for production)
-- Display schools in a **responsive grid** (like ecommerce sites)
-- Mobile and Desktop friendly (TailwindCSS responsive design)
+- Add new schools with essential details:
+  - Name, Address, City, State, Contact, Email, Image upload
+- Client-side and server-side validation via **react-hook-form + Zod**
+- Images stored in `/public/schoolImages/` (for local/VPS) or via Cloudinary (for production deployments)
+- Responsive, ecommerce-style school listing with grid layout
+- Mobile-first design using TailwindCSS
 
 ---
 
-## 🛠️ Tech Stack
-- **Frontend:** Next.js 14, React, TailwindCSS
-- **Backend:** Next.js API routes
-- **Database:** MySQL (`mysql2/promise`)
-- **Forms:** react-hook-form + Zod
-- **Hosting:** Vercel
+## 🛠 Tech Stack
+- **Frontend:** Next.js 14 (App Router), React, TailwindCSS  
+- **Form Handling:** react-hook-form + Zod  
+- **Backend:** Next.js API routes (`/api/schools`)  
+- **Database:** MySQL with `mysql2/promise`  
+- **Hosting:** Vercel  
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Add School Page
-_Form with validations and image upload_
-
+_Form with validations and image upload_  
 ![Add School Screenshot](public/demo/addSchool.png)
 
 ### Show Schools Page
-_Ecommerce-style grid with school info_
-
+_Ecommerce-style grid displaying school listings_  
 ![Show Schools Screenshot](public/demo/showSchools.png)
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
-1. **Clone the Repo**
+1. **Clone the Repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/schools-registry-next.git
-   cd schools-registry-next
+   git clone https://github.com/215N1F00A1/SchoolRegistry.git
+   cd SchoolRegistry
 Install Dependencies
 
 npm install
 Configure Environment
-Create a .env.local file:
+Create a .env.local file with your MySQL credentials:
+
 env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=yourpassword
-DB_NAME=schoolsdb
-Create Database
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASSWORD=yourpassword
+MYSQL_DATABASE=schools_db
+Create Database Table
 
 sql
-CREATE DATABASE schoolsdb;
-USE schoolsdb;
+
+CREATE DATABASE IF NOT EXISTS schools_db;
+USE schools_db;
+
 CREATE TABLE schools (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name TEXT,
-  address TEXT,
-  city TEXT,
-  state TEXT,
-  contact VARCHAR(15),
-  image TEXT,
-  email_id TEXT
+  name TEXT NOT NULL,
+  address TEXT NOT NULL,
+  city TEXT NOT NULL,
+  state TEXT NOT NULL,
+  contact VARCHAR(20) NOT NULL,
+  image TEXT NOT NULL,
+  email_id TEXT NOT NULL
 );
 Run Locally
-
 npm run dev
-Visit → http://localhost:3000/addSchool
+Open:
+http://localhost:3000/addSchool to add schools
+http://localhost:3000/showSchools to view listings
 
-Deploy to Vercel
-Push project to GitHub
+Deploy on Vercel
+Push repository to GitHub (already done)
+
 Import into Vercel
-Add .env.local values in project settings
+Add environment variables in project settings
+Use Cloudinary integration for uploaded images to persist online
 
-🎯 Future Improvements
-Search and filter schools by city/state
+Future Enhancements
+Add search and filter functionality (e.g., by city or state)
+Enable pagination / infinite scroll for long lists
 
-Pagination and sorting
-Cloud image storage (Cloudinary/AWS S3)
+Support sorting and category tags
+
+Integrate Cloudinary or S3 for scalable image storage
